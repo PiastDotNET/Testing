@@ -1,0 +1,40 @@
+{
+  "consumer": {
+    "name": "Web"
+  },
+  "provider": {
+    "name": "Api"
+  },
+  "interactions": [
+    {
+      "description": "GET request to retrieve advertisement",
+      "providerState": "Valid advertisement Id",
+      "request": {
+        "method": "get",
+        "path": "/api/Advertisements/debdedbf-1524-4d83-8d74-7d05ffb02d6e",
+        "headers": {
+          "Host": "localhost:5000",
+          "Version": "HTTP/1.1"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "id": "debdedbf-1524-4d83-8d74-7d05ffb02d6e",
+          "title": "Title",
+          "description": "Description",
+          "price": 1.0,
+          "publicationDate": "2019-01-10T00:00:00"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "1.0.0"
+    }
+  }
+}
