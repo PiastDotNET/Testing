@@ -9,14 +9,15 @@ namespace Piast.Web.Core.Validators
         {
             RuleFor(x=>x.Title)
                 .NotEmpty()
+                .WithMessage("This field cannot be empty")
                 .NotNull()
                 .WithMessage("This field cannot be empty");
             RuleFor(x=>x.Description)
                 .NotEmpty()
+                .WithMessage("This field cannot be empty")
                 .NotNull()
                 .WithMessage("This field cannot be empty");
             RuleFor(x=>x.Price)
-                .NotEmpty()
                 .NotNull()
                 .Must(y => y >=0)
                 .WithMessage("This field cannot be on minus");
