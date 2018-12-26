@@ -11,8 +11,6 @@ namespace Piast.Api.Infrastructure.Converters.Profiles
         {
             CreateMap<Advertisement,AdvertisementDTO>();
             CreateMap<AdvertisementDTO,Advertisement>();
-            CreateMap<IList<Advertisement>,IList<AdvertisementDTO>>();
-            CreateMap<IList<AdvertisementDTO>,IList<Advertisement>>();
         }
     }
 }

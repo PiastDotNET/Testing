@@ -1,7 +1,9 @@
 using System;
+using Piast.Api.Domain.Attributes;
 
 namespace Piast.Api.Domain.Entities
 {
+    [BsonCollection("Advertisements")]
     public class Advertisement : BaseEntity
     {
         public string Title { get; set; }
