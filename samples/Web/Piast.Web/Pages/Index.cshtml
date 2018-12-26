@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{pageNumber=1}"
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -41,3 +41,19 @@
         </tr>
     }
 </table>
+@if(Model.ItemsPage.PreviousPageAvailable)
+{
+    <a asp-page="/Index" asp-route-pageNumber="@Model.PreviousPageNumber" asp-route-PageCount="@Model.PageCount">
+        <button type="button" class="btn btn-success">
+            Prevoius page
+        </button>
+    </a>
+}
+@if(Model.ItemsPage.NextPageAvailable)
+{
+    <a asp-page="/Index" asp-route-pageNumber="@Model.NextPageNumber" asp-route-PageCount="@Model.PageCount">
+        <button type="button" class="btn btn-success">
+            Next page
+        </button>
+    </a>
+}

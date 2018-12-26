@@ -11,15 +11,24 @@ namespace Piast.Web.Pages
 {
     public class IndexModel : PageModel
     {
+        private const int DefaultPageCount = 20;
         private readonly IAdvertisementService _service;
         public PageModel<AdvertisementModel> ItemsPage { get; set; }
+        public int NextPageNumber { get; set; }
+        public int PreviousPageNumber { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int PageCount { get; set; }
         public IndexModel(IAdvertisementService service)
         {
             _service = service;
+            PageCount = DefaultPageCount;
         }
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int pageNumber)
         {
-            ItemsPage = await _service.GetPage(1,20);
+            NextPageNumber = pageNumber+1;
+            PreviousPageNumber = pageNumber-1;
+            ItemsPage = await _service.GetPage(pageNumber, PageCount);
+            ItemsPage.PreviousPageAvailable = PreviousPageNumber != 0;
         }
     }
 }

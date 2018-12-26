@@ -6,5 +6,6 @@ namespace Piast.Web.Core.Models
     {
         public IList<T> Items { get; set; }
         public bool NextPageAvailable { get; set; }
+        public bool PreviousPageAvailable { get; set; }
     }
 }
