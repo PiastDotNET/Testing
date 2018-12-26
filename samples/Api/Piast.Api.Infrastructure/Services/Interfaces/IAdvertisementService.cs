@@ -10,7 +10,7 @@ namespace Piast.Api.Infrastructure.Services.Interfaces
     {
         Task<AdvertisementDTO> FindFirstByIdAsync(Guid id);
 
-        Task<IList<AdvertisementDTO>> FindPageAsync(int page, int pageCount);
+        Task<PageDTO<AdvertisementDTO>> FindPageAsync(int page, int pageCount);
         Task AddAsync(AdvertisementDTO model);
     }
 }

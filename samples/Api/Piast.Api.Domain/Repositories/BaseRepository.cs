@@ -36,7 +36,7 @@ namespace Piast.Api.Domain.Repositories
             var collection = _database.GetCollection<T>(GetCollectionName());
             return await collection
                 .Find(predicate)
-                .Skip(page*pageCount)
+                .Skip((page-1)*pageCount)
                 .Limit(pageCount+1)
                 .ToListAsync();
         }

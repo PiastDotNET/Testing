@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +11,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Piast.Web.Core.Models;
+using Piast.Web.Core.Services.Interfaces;
+using Piast.Web.Core.Validators;
+using RestEase;
 
 namespace Piast.Web
 {
@@ -31,8 +37,16 @@ namespace Piast.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services
+                .AddScoped<IValidator<AdvertisementModel>,AdvertisementValidator>()
+                .AddScoped<IAdvertisementService>(
+                    _ => RestClient.For<IAdvertisementService>(Configuration.GetConnectionString("ApiAddress"))); 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services
+                .AddMvc()
+                .AddFluentValidation()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

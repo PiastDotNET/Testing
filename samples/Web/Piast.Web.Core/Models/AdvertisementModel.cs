@@ -1,8 +1,8 @@
 using System;
 
-namespace Piast.Api.Infrastructure.DTO
+namespace Piast.Web.Core.Models
 {
-    public class AdvertisementDTO
+    public class AdvertisementModel
     {
         public Guid Id { get; set; }
         public string Title { get; set; }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,17 +9,17 @@ using Piast.Web.Core.Services.Interfaces;
 
 namespace Piast.Web.Pages
 {
-    public class IndexModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly IAdvertisementService _service;
-        public PageModel<AdvertisementModel> ItemsPage { get; set; }
-        public IndexModel(IAdvertisementService service)
+        public AdvertisementModel Advertisement { get; set; }
+        public DetailsModel(IAdvertisementService service)
         {
             _service = service;
         }
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(Guid id)
         {
-            ItemsPage = await _service.GetPage(1,20);
+            Advertisement = await _service.FindById(id);
         }
     }
 }

@@ -1,0 +1,23 @@
+﻿@page
+@model AddModel
+@{
+}
+
+<form method="POST">
+    <div class="input-group col-xs-4">
+        <span>Title:</span>
+        <input class="form-control" asp-for="Advertisement.Title" type="text" />
+        <span asp-validation-for="Advertisement.Title" class="text-danger"></span>
+    </div>
+    <div class="input-group col-xs-4">
+        <span>Description:</span>
+        <textarea class="form-control input-lg" asp-for="Advertisement.Description" ></textarea>
+        <span asp-validation-for="Advertisement.Description" class="text-danger"></span>
+    </div>
+    <div class="input-group col-xs-4">
+        <span>Price</span>
+        <input class="form-control" asp-for="Advertisement.Price" type="number" min="0", step="0.01" />
+        <span asp-validation-for="Advertisement.Price" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Save"/>
+</form>
