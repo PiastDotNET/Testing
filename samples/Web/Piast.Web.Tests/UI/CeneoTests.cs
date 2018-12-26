@@ -1,7 +1,9 @@
 using System;
+using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using Shouldly;
 
@@ -54,7 +56,6 @@ namespace Piast.Web.Tests.UI
             }
         }
 
-        [Ignore("Not working yet")]
         [Test]
         public void Erotic_Should_Redirect_To_VerificationPage()
         {
@@ -65,6 +66,10 @@ namespace Piast.Web.Tests.UI
 
                 var categoryMenu = driver
                     .FindElement(By.Id("categories-menu"));
+
+                var actions = new Actions(driver);
+
+                actions.MoveToElement(categoryMenu).Perform();
 
                 var categoryButtonElement = driver
                     .FindElement(By.ClassName("category-icon-643"));
