@@ -85,3 +85,10 @@
 ***
 
 ### Q&A
+
+***
+
+### Links
+ * https://github.com/PiastDotNET/Testing
+ * https://github.com/KrystianKolad/UnitTestTutorial
+ * https://www.youtube.com/watch?v=gQaShMN_tN8
